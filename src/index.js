@@ -1,17 +1,15 @@
 module.exports = function multiply(first, second) {
   // your solution
   let arr = [];
-  let arrFirst = [];
-  let arrSecond = [];
   let number = [];
-  let back = 0;
+  let rank = 0;
 
   if ((first.length < 3) && (second.length < 3)) {
     return String(first*second);
   }
 
-  arrFirst = first.split('').reverse();
-  arrSecond = second.split('').reverse();
+  let arrFirst = first.split('').reverse();
+  let arrSecond = second.split('').reverse();
 
   for(let i = 0; i<arrFirst.length; i++){
     arr[i] = [];
@@ -37,9 +35,9 @@ module.exports = function multiply(first, second) {
 
   for (let i = 0; i<arr[1].length; i++) {
     number[i] = number[i].reduce((summ,curent) => summ + curent);
-    number[i] = number[i] + back;
+    number[i] = number[i] + rank;
    if (number[i] > 2) {
-    back = parseInt(number[i]/10);
+    rank = parseInt(number[i]/10);
     if (i < arr[1].length-1) {
     number[i] = number[i] - (parseInt(number[i]/10))*10;
     }
@@ -49,5 +47,5 @@ module.exports = function multiply(first, second) {
   number.reverse();
   arr = number.join('');
 
-return arr;
+  return arr;
 }
